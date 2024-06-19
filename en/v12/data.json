@@ -31,9 +31,9 @@
     "tutorial": 
 	{
         "_common": 
-		{
-            "name": "Using a Validate node to check a message against a JSON schema",
-            "shortDescription": "Learn how to use the Validate node to check a message against a JSON schema in a message flow driven by a JSON message over HTTP.",
+		{	
+	    "name": "Using a Tree Transform node to explore context trees",
+            "shortDescription": "Learn how to use the Tree Transform node whilst investigating how context trees aid usability.",
             "durationText": "This tutorial takes approximately",
             "durationTime": "5 minutes",
             "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
