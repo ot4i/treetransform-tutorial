@@ -1,0 +1,235 @@
+{
+    "version": "0.1",
+    "pageContent": 
+	{
+        "_comments": "object that contains data for page labels, buttons, etc.",
+        "navItems": 
+		{
+            "_common": 
+			{
+                "buttonBackToGallery": 
+				{
+                    "name": "Back To Gallery",
+					"method": "backToGallery()",
+					"idName": "backToGallery"	
+                },
+                "buttonStartTutorial": 
+				{
+                    "name": "Start Tutorial",
+					"method": "startTutorialFromDetailsScreen()",
+					"idName": "startTutorial"
+                },
+				"buttonViewDetails": 
+				{
+                    "name": "View Details",
+					"method": "viewDetails()",
+					"idName": "stepsViewDetails"	
+                }
+            }
+        }
+    },
+    "tutorial": 
+	{
+        "_common": 
+		{
+            "name": "Using a Validate node to check a message against a JSON schema",
+            "shortDescription": "Learn how to use the Validate node to check a message against a JSON schema in a message flow driven by a JSON message over HTTP.",
+            "durationText": "This tutorial takes approximately",
+            "durationTime": "5 minutes",
+            "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+            "resourceToOpen": "MainFlow",
+            "helpLink": 
+			{
+                "text": "IBM Documentation",
+           		"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+            }
+        },
+        "pageDetails": 
+		{
+            "topicsName": "Tutorial topics",
+            "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+            "topicList": 
+			[
+                {
+                    "title": "Validate node"
+                }
+            ],
+            "outcomesName": "Learning outcomes",
+            "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+            "outcomeList": 
+			[
+                {
+                    "title": "Use IBM App Connect Enterprise to validate JSON message data in a flow using a JSON schema."
+                }
+            ],
+            "summary": 
+			{
+                "overviewName": "OVERVIEW",
+                "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+                "sections": 
+				[
+                    {
+                        "section": "This tutorial demonstrates a simple message flow that receives a JSON input message over HTTP, and checks the data against a JSON schema using a Validate node. Two example input messages are provided, one which will fail validation and one which will pass validation. Graphical mapping nodes are used in both cases to construct a reply message which is returned to the requesting client using an HTTPReply node."
+                    },
+                    {
+                        "section": "The tutorial requires an ACE integration node owned server, or a standalone server."
+                    },
+                    {
+                        "section": "In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. There are no other pre-requisites needed by the scenario."
+                    }
+                ]
+            },
+			"helpLinks": 
+			{
+				"_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+				"title": "Find out more",
+				"details": 
+				[
+					{
+						"title": "IBM Documentation link to ",
+						"description": "Developing integration solutions by using applications",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+						"type": "web"
+					}
+				]
+			}
+        },
+        "pageSteps": 
+		{
+            "create": 
+			{
+                "overview": 
+				{
+                    "name": "Create",
+                    "heading": "Import projects",
+                    "_createComment": "A description of what will happen when the user clicks Import.",
+                    "sections": 
+					[
+                        {
+                            "section": "When you click Import, one project will be created in your workspace: An application named <span class='application'>ExampleValidateJSON</span>."
+                        },
+                        {
+                            "section": "<span class='application'>ExampleValidateJSON</span> provides a single message flow named <span class='resource'>ValidateJSON</span> which receives data using an HTTPInput node. This node is configured to expect a JSON message which conforms to the JSON schema named <span class='resource'>OrderSchema.json</span> although the HTTPInput node itself is not set up to validate the message immediately. The next node in the flow is a Validate node which checks the input JSON against the JSON schema. The message is sent down the Match or Failure terminal depending on whether validation passes or fails. Next the graphical mapping node generates a suitable reply which is returned using the HTTPReply node at the end of the flow."
+						},						
+                        {
+			    			"section": "Once imported, the provided project is ready to be deployed and tested, as described on the Prepare tab."
+						}
+                    ]
+                },
+                "helpLinks": 
+				{
+                    "title": "Find out more",
+                    "details": 
+					[
+                        {
+                            "title": "IBM Documentation link to ",
+                            "description": "Developing integration solutions by using applications",
+                            "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+							"type": "web"
+                        }
+                    ]
+                },
+                "actions": 
+				{
+                    "title": "Create Actions",
+                    "details": 
+					[
+                        {
+                            "name": "Import",
+                            "method": "importArtifacts()"
+                        }
+                    ]
+                }
+            },
+            "prepare": 
+			{
+                "overview": 
+				{
+                    "name": "Prepare",
+                    "heading": "Create a local integration server",
+                    "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+                    "sections": 
+		     [
+			  {
+              "section":"Prepare the scenario by executing the following steps:",				
+                "steps":
+                {
+                "type":"ordered",
+                "details":
+                  [                    					
+					{ 
+					                      "details":"From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
+					}					
+                  ]
+                }
+              }
+             ]
+                },
+                "helpLinks": 
+				{
+                }
+            },
+            "run": 
+			{
+                "overview": 
+				{
+                    "name": "Run",
+                    "heading": "Use the Flow Exerciser to test out the flow:",
+                    "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+                "sections":[                            
+                            {                                
+                                "steps": {
+                                    "type": "ordered",
+                                    "details": [                                      
+                                    {
+                                        "details": "Open <span class='resource'>ValidateJSON.msgflow</span>.",
+                                        "substeps":{
+                                        "type": "unordered",
+                                        "details": 
+								        [
+                                        {
+                                          "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                                        },   
+										{
+                                            "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Two saved messages are provided."
+                                        },
+                                        {
+                                            "details": "The input message <span class='resource'>ValidationFail</span> contains this data:<br><code>{<br>\"Initials\":\"Fred\",<br>\"Surname\":\"Bloggs\",<br>\"Item\": {<br>\"Code\": 123,<br>\"Description\": \"Crystal Ball\",<br>\"Category\": \"Futuristic Equipment\",<br>\"Price\": \"99.99\",<br>\"Quantity\": 1<br>}<br>}</code><br>Note that the Price is provided as a String, although the JSON schema model defines it to be a number. Select this input messages and click Send and your message is sent to the HTTPInput node. You will receive a reply message stating that the message failed validation. After you close the dialog, the path taken through the messageflow will be highlighted."																						
+									},											
+										{
+                                            "details": "The input message <span class='resource'>ValidationPass</span> contains this data:<br><code>{<br>\"Initials\":\"Fred\",<br>\"Surname\":\"Bloggs\",<br>\"Item\": {<br>\"Code\": 123,<br>\"Description\": \"Crystal Ball\",<br>\"Category\": \"Futuristic Equipment\",<br>\"Price\": 99.99,<br>\"Quantity\": 1<br>}<br>}</code><br>This version of the message conforms correctly to the JSON schema model which defines the Price as a number. Select this input messages and click Send and your message is sent to the HTTPInput node. You will receive a reply message stating that the message passed validation. After you close the dialog, the path taken through the messageflow will be highlighted."																						
+				                        }										
+                                        ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+			{
+			    "section": "This tutorial has shown the Validate node check a message against a JSON schema."
+			}
+                    ]
+                },
+                "helpLinks": 
+				{
+                    "title": "Find out more",
+                    "details": 
+					[
+                        {
+                            "title": "IBM Documentation link to ",
+                            "description": "Validate node",
+                            "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac20803_.htm",
+							"type": "web"
+                        },
+                        {
+                            "title": "IBM Documentation link to ",
+                            "description": "Testing your message flow by using the Flow exerciser",
+                            "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+							"type": "web"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
