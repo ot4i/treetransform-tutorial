@@ -69,7 +69,7 @@
                 "sections": 
 				[
                     {
-                        "section": "This tutorial develops and then demonstrates a simple message flow that uses very basic XML and JSON messages to help explain the concept of how the ACE in memory logical message tree works. The message flow, which is driven using HTTP data, is initially used to transform between XML and JSON using the new Tree Transform node. The flow is then extended to use a new Context tree which is shown using a Trace node. In the next stage of the tutorial a Jira Request node is added to the message flow which demonstrates how Context trees can help with mapping tasks. Finally a Compute node is inserted into the message flow and the new ESQL content-assist feature is used to map from a new Context tree back into a traditional logical message tree."
+                        "section": "This tutorial provides a simple message flow that uses very basic XML and JSON messages to help explain the concept of how the ACE in memory logical message tree works. The message flow, which is driven using HTTP data, is initially used to transform between XML and JSON using the new Tree Transform node. The flow is then extended in a variety of ways to use the new Context tree which is shown using a Trace node. In the later stages of the tutorial a Jira Request node is added which demonstrates how Context trees can help with mapping tasks. Finally a Compute node is inserted into the message flow and the new ESQL content-assist feature is used to map from a new Context tree back into a traditional logical message tree."
                     },
                     {
                         "section": "The tutorial utilizes a local independent integration server in the Toolkit. The server uses an external directory vault to store a credential which is needed to interact with Jira."
@@ -103,14 +103,17 @@
                     "sections": 
 					[
                         {
-                            "section": "When you click Import, one project will be created in your workspace: An application named <span class='application'>ExampleValidateJSON</span>."
+                            "section": "When you click Import, one project will be created in your workspace: An application named <span class='application'>TreeTransformApplication</span>."
                         },
                         {
-                            "section": "<span class='application'>ExampleValidateJSON</span> provides a single message flow named <span class='resource'>ValidateJSON</span> which receives data using an HTTPInput node. This node is configured to expect a JSON message which conforms to the JSON schema named <span class='resource'>OrderSchema.json</span> although the HTTPInput node itself is not set up to validate the message immediately. The next node in the flow is a Validate node which checks the input JSON against the JSON schema. The message is sent down the Match or Failure terminal depending on whether validation passes or fails. Next the graphical mapping node generates a suitable reply which is returned using the HTTPReply node at the end of the flow."
-						},						
-                        {
-			    			"section": "Once imported, the provided project is ready to be deployed and tested, as described on the Prepare tab."
+                            "section": "<span class='application'>TreeTransformApplication</span> provides three separate message flows named <span class='resource'>TreeTransformValidateJSON</span>, <span class='resource'>TreeTransformValidateXML</span> and <span class='resource'>TreeTransform</span>. Each of these message flows is designed to receive data over HTTP with different URL specifiers. The tutorial will begin by demonstrating two simple message model formats: one in XML and one in JSON. An XML schema is provided which describes the XML structure. A JSON schema is provided which describes the JSON structure. As its name suggests, the message flow named <span class='resource'>TreeTransformValidateXML</span> will demonstrate both valid and invalid data being successfully validated using the provided XML schema. Similarly, the message flow named <span class='resource'>TreeTransformValidateJSON</span> will demonstrate both valid and invalid data being successfully validated using the provided JSON schema."					},				
+        {	    			"section": "Having established these core principles, the message flow named <span class='resource'>TreeTransform</span> will demonstrate the new TreeTransform node and its ability to easily transform an XML input message into a JSON output message."
+	},
+	{	    			"section": "Next we will add a Jira Request node into the message flow. In previous versions of the product, the Discovery Connector nodes have needed configuration to inform them about the JSON structures created by earlier preceding nodes in the message flow. We will demonstrate this shortcoming by launching discovery. We will then edit the TreeTransform node's Output Message Location property to demonstrate its ability to construct a new Context tree. Context trees can be helpful in simplifying message flows that utilize Discovery Connector nodes. Having changed this property we will relaunch discovery for the Jira Request node and see that it now automatically knows about the JSON message format from earlier in the flow. We will redeploy the message flow and demonstrate an Issue being created in Jira."
+						},
+{	    			"section": "Finally we will further enhance the message flow by placing a Compute node after the Jira Request node and use the new ESQL Content Assist facility to take values from the Context tree and map them back in to a traditional message assembly."
 						}
+
                     ]
                 },
                 "helpLinks": 
