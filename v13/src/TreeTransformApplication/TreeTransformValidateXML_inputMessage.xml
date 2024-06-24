@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessagePool xmlns="http://wwww.ibm.com/iib/test/1.0.0">
+    <InputMessage timestamp="1718873856042" nodeId="FCMComposite_1_1" name="Invalid XML" id="1718873856042-647">
+        <plainText>%3CThisFieldIsNotInTheSchema%3E%0D%0A%3CDescription%3EThis+is+a+short+summary+description%3C%2FDescription%3E%0D%0A%3C%2FThisFieldIsNotInTheSchema%3E</plainText>
+    </InputMessage>
+    <InputMessage timestamp="1718873911043" nodeId="FCMComposite_1_1" name="Valid XML" id="1718873911043-718">
+        <plainText>%3CProblem%3E%0D%0A%3CDescription%3EThis+is+a+short+summary+description%3C%2FDescription%3E%0D%0A%3C%2FProblem%3E</plainText>
+    </InputMessage>
+</MessagePool>
